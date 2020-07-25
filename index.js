@@ -5,7 +5,7 @@ const connectDB = require("./db/connection");
 
 const cors = require('cors')
 const corsOptions = {
-  origin: 'http://ec2-3-134-253-238.us-east-2.compute.amazonaws.com',
+  origin: 'http://localhost:3000',
   optionsSuccessStatus: 200
 }
 app.use(cors(corsOptions));
