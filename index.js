@@ -7,8 +7,12 @@ const cors = require('cors');
 
 //app.use(cors());
 
-app.use(cors());
+const app = express();
+const PORT = process.env.PORT || 3300;
 
+//call to DB
+connectDB();
+app.use(cors());
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -16,13 +20,7 @@ app.use(function(req, res, next) {
   next();
 });
 
-const app = express();
-const PORT = process.env.PORT || 3300;
-
-//call to DB
-connectDB();
-
-app.use(express.static(path.join(__dirname, "..", "build")));
+// app.use(express.static(path.join(__dirname, "..", "build")));
 app.use(photosRouter);
 
 app.use((req, res, next) => {
