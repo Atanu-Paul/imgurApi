@@ -48,7 +48,7 @@ Router.post(
 Router.get("/photos", async (req, res) => {
   try {
     const photos = await Photo.find({});
-    res.send({photos});
+    res.send({ photos });
   } catch (error) {
     res.status(500).json({ get_error: "Error while getting list of photos." });
   }

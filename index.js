@@ -3,6 +3,13 @@ const path = require("path");
 const photosRouter = require("./routers/photos");
 const connectDB = require("./db/connection");
 
+const cors = require('cors')
+const corsOptions = {
+  origin: 'http://ec2-3-134-253-238.us-east-2.compute.amazonaws.com',
+  optionsSuccessStatus: 200
+}
+app.use(cors(corsOptions));
+
 const app = express();
 const PORT = process.env.PORT || 3300;
 
